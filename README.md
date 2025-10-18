@@ -1,4 +1,4 @@
-# Hacker News Best Stories API (Santander Coding Test)
+# Hacker News Best Stories API
 
 This project implements a RESTful API in ASP.NET Core that fulfills the provided coding challenge. The API retrieves the best stories from the public Hacker News API, as determined by their score.
 
@@ -33,7 +33,7 @@ Make sure you have [Docker](https://www.docker.com/get-started) and [Docker Comp
         ```
     3. Once the services are up, the API should be accessible as per the Docker configuration (usually `http://localhost:5000` or `https://localhost:5001`).
 
-    * The API will be available at `http://localhost:8080`.
+    * The API will be available at `http://localhost:8099`.
     * Redis will be available at `localhost:6379` (internal to Docker network).
 
 #### 3. **Run the application (via CLI, without Docker):**
@@ -64,8 +64,8 @@ Make sure you have [Docker](https://www.docker.com/get-started) and [Docker Comp
 
 Once the application is running, it will host a Swagger (OpenAPI) interface for easy viewing and testing of the endpoints.
 
-* **Swagger URL:** `http://localhost:8080/swagger`
-* **API URL (example):** `http://localhost:8080/api/v1/stories/best`
+* **Swagger URL:** `http://localhost:8099/swagger`
+* **API URL (example):** `http://localhost:8099/api/v1/stories/best`
 
 ### Endpoint
 
@@ -79,7 +79,7 @@ Returns the  best stories from Hacker News.
     * `n` (integer, optional, default: 10): The number of stories to return.
 
 * **Example Request:**
-    `GET http://localhost:8080/api/v1/stories/best?n=20`
+    `GET http://localhost:8099/api/v1/stories/best?n=20`
 
 * **Example Response (`200 OK`):**
     ```json
@@ -124,3 +124,16 @@ A `docker-compose.yml` is provided to run both the API and Redis together for lo
 
 **Note:**  
 If you scale the API horizontally (multiple containers/instances), all will share the same Redis cache, ensuring consistent and efficient responses.
+
+## Running Tests
+
+The project includes a comprehensive test suite to ensure reliability and correctness. To run the tests:
+
+### Using Visual Studio:
+1. Open the solution in Visual Studio
+2. Open Test Explorer (__Test > Test Explorer__)
+3. Click "Run All Tests" or use the shortcut (Ctrl+R, A)
+
+### Using Command Line:
+
+The test suite includes unit tests for components such as the StoryValidator service to ensure proper validation of story data.
