@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7.2-alpine
+    container_name: hn-redis
+    ports:
+      - "6379:6379"
+
+  hackernews-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hn-api
+    ports:
+      - "8099:8099"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Redis=redis:6379
+    depends_on:
+      - redis
