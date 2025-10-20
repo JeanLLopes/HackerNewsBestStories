@@ -4,6 +4,8 @@ This project implements a RESTful API in ASP.NET Core that fulfills the provided
 
 The primary focus of this project is **efficiency** and **resilience**, ensuring the API can handle a large number of requests without overloading the external Hacker News API. This is achieved through a distributed caching strategy (using Redis) and parallel processing.
 
+![Recording+2025-10-18+184452](https://github.com/user-attachments/assets/1f8eb6e0-98d1-4ba2-906f-e21f5911f012)
+
 ## Features
 
 * Retrieves the IDs of the "best stories" (`beststories.json`).
